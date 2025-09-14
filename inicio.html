@@ -1,0 +1,155 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- existente -->
+</head>
+
+<body>
+    <header class="encabezado">
+        <nav>
+            <a>
+                <ul class="listas">
+                    <li class="items"> <a href="./paginas/seccionsocial.html">Seccion Social</a></li>
+                    <li class="items"> <a href="./paginas/seccionliteraria.html">Seccion Literaria</a></li>
+                    <li class="items"> <a href="./paginas/seccioneconomica.html">Seccion Economica</a></li>
+                    <li class="items"> <a href="./paginas/secciondeportiva.html">Seccion Deportiva</a></li>
+                    <li class="items"> <a href="./paginas/seccionpublicaaqui.html">Seccion Publica AQUI</a></li>
+                    <li class="items"> <a href="./paginas/seccionpasatiempos.html">Seccion Pasatiempos</a></li>
+                    <li class="items"> <a href="./paginas/seccionsostenibilidad.html">Seccion Sostenibilidad</a></li>
+                </ul>
+        </nav>
+
+        <!-- Barra de búsqueda -->
+        <div class="search-bar">
+            <input type="text" id="site-search" placeholder="Buscar noticias...">
+        </div>
+
+    </header>
+    <div>
+        <h1>PERIODICO INPROVACC</h1>
+        <h2>¿Que es el Periodico Inprovacc?</h2>
+        El Periodico Inprovacc es un proyecto hecho por Luis Angel, Santiago Lozano, Juan Jose y Joan Alejandro de grado
+        septimo, el cual esta encaminado en la filosofia de la Institucion donde se estaran practicando lo aprendido en
+        las areas de sistemas, programacion de software y, en general, todas las demas materias. Este proyecto busca la
+        accesibilidad de toda la comunidad educativa a las actividades del colegio. Tambien sera una forma en de darle
+        al Colegio Tecnico Inprovacc recursos extras, etc.
+
+    </div>
+
+    <H1>NOTICIAS RELEVANTES</H1>
+
+    <section class="hero container">
+        <article class="hero-card">
+            <img src="logoinprovacc.png" alt="IMAGENINEXISTENTE" />
+            <div class="hero-text">
+                <h1>Semana Cultural</h1>
+                <p>La semana cultural es un evento que, como su nombre lo dice, dura una semana, y se trata de exponer
+                    cosas de ciencias y tecnologia, mostrando diferentes maquetas y proyectos con ideas innovadoras,
+                    interesantes y utiles.... <a href="#">Leer más</a></p>
+            </div>
+        </article>
+    </section>
+
+    <main class="container layout">
+        <section class="news-grid">
+            <!-- repetir article.card -->
+            <article class="card">
+                <img src="ruta.jpg" alt="IMAGENINEXISTENTE" />
+                <h3>Título</h3>
+                <p>Resumen...</p>
+                <a href="#">Leer más</a>
+            </article>
+        </section>
+        <aside class="sidebar">
+            <!-- widgets: últimas, redes, encuesta -->
+        </aside>
+    </main>
+
+    <script>
+        /* Buscador: filtra títulos de .card */
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('site-search'); // agrega input si quieres
+            if (!input) return;
+            input.addEventListener('input', () => {
+                const q = input.value.toLowerCase();
+                document.querySelectorAll('.card').forEach(card => {
+                    const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                    card.style.display = title.includes(q) ? '' : 'none';
+                });
+            });
+        });
+    </script>
+    <button id="backTop" style="display:none;position:fixed;right:18px;bottom:18px;">↑</button>
+    <script>
+        const bt = document.getElementById('backTop');
+        window.addEventListener('scroll', () => bt.style.display = window.scrollY > 200 ? 'block' : 'none');
+        bt?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+
+    <main class="container news-section">
+        <article class="card">
+            <img src="img/noticia1.jpg" alt="Noticia 1">
+            <h3>Primer artículo de prueba</h3>
+            <p>Un resumen corto de la noticia. Explica en pocas líneas de qué trata.</p>
+            <a href="#">Leer más</a>
+        </article>
+
+        <article class="card">
+            <img src="img/noticia2.jpg" alt="Noticia 2">
+            <h3>Segundo artículo de prueba</h3>
+            <p>Otro resumen breve. Aquí iría la introducción de la nota.</p>
+            <a href="#">Leer más</a>
+        </article>
+
+        <article class="card">
+            <img src="img/noticia3.jpg" alt="Noticia 3">
+            <h3>Tercer artículo de prueba</h3>
+            <p>Resumen de ejemplo. Esto se reemplaza por el contenido real.</p>
+            <a href="#">Leer más</a>
+        </article>
+    </main>
+
+    <section class="hero container">
+        <article class="hero-card">
+            <img src="img/destacada.jpg" alt="Noticia destacada">
+            <div class="hero-text">
+                <h2>Noticia principal del día</h2>
+                <p>Un resumen breve que atrae al lector para entrar al artículo completo.</p>
+                <a href="#">Leer más</a>
+            </div>
+        </article>
+    </section>
+
+    <main class="container layout">
+        <section class="news-grid">
+            <!-- aquí van tus cards normales -->
+        </section>
+
+        <aside class="sidebar">
+            <h2>Últimas noticias</h2>
+            <ul>
+                <li><a href="#">Titular rápido 1</a></li>
+                <li><a href="#">Titular rápido 2</a></li>
+                <li><a href="#">Titular rápido 3</a></li>
+            </ul>
+            <h2>Síguenos</h2>
+            <p>
+                <a href="#">Facebook</a> | <a href="#">Twitter</a>
+            </p>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Periódico Inprovacc. Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:contacto@inprovacc.com">contacto@inprovacc.com</a></p>
+        </div>
+    </footer>
+    <meta caracter="UTF-8">
+</body>
+
+</html>
